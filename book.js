@@ -1,6 +1,4 @@
-console.log('I got that');
 
-// searchText();
 const loadBookData = () => {
 
     const inputText = document.getElementById('text-input');
@@ -10,12 +8,20 @@ const loadBookData = () => {
     const url = `https://openlibrary.org/search.json?q=${searchText}`;
     fetch(url)
         .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            const displayNumberFound = data.numFound;
-            const Searchdata = data.docs;
-            console.log(Searchdata);
-        })
+        .then(data => displaySearchResult(data))
 
 }
-loadBookData();
+// loadBookData();
+const displaySearchResult = (data) => {
+    console.log(data)
+
+    const showSearchDetails = document.getElementById('search-results');
+    const h2 = document.createElement('h2');
+
+    h2.innerHTML = `
+        Total books found: ${data.numFound}
+        books: ${data.docs[0].title}
+        
+        `;
+    showSearchDetails.appendChild(h2);
+}
