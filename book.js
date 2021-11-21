@@ -5,6 +5,8 @@ const availableBooks = text => {
     h2.innerHTML = text;
     bookFound.appendChild(h2);
 }
+
+// book data load function 
 const loadBookData = () => {
     const searchResult = document.getElementById('search-results');
     searchResult.textContent = '';
@@ -23,7 +25,7 @@ const loadBookData = () => {
     }
     inputText.value = '';
 }
-// loadBookData();
+
 const displaySearchResult = data => {
     const books = data.docs;
     // console.log(books);
@@ -56,7 +58,7 @@ const displaySearchResult = data => {
                     </div>
                   </div>
                 </div>
-                `
+                `;
             searchResult.appendChild(div);
         })
     }
