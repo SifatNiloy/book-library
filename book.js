@@ -16,6 +16,7 @@ const loadBookData = () => {
     if (searchText === '') {
         availableBooks(`please enter book name`);
     }
+    
     else {
         console.log(searchText);
         const url = `https://openlibrary.org/search.json?q=${searchText}`;
