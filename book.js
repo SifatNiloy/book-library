@@ -1,15 +1,18 @@
+const availableBooks = text => {
+    const bookFound = document.getElementById('totalBookNumber');
+    bookFound.textContent = '';
+    const h2 = document.createElement('h2');
+    h2.innerHTML = text;
+    bookFound.appendChild(h2);
+}
 
 const loadBookData = () => {
 
-
     const inputText = document.getElementById('text-input');
     const searchText = inputText.value;
-    if (searchText === '') {
-        console.log('please write some text')
-        const searchTextCheck = document.getElementById('searchTextCheck');
-        const h4 = document.createElement('h4');
-        h4.innerText = "please enter book name";
-        searchTextCheck.appendChild(h4);
+    if (searchText == '') {
+
+        availableBooks(`please enter book name`);
     }
     else {
         console.log(searchText);
@@ -19,32 +22,25 @@ const loadBookData = () => {
             .then(data => displaySearchResult(data))
 
     }
+    inputText.value = '';
 
 }
 // loadBookData();
 const displaySearchResult = data => {
+
     console.log(data.docs);
     const books = data.docs;
     // console.log(books);
     if (books.length == 0) {
-        const bookFound = document.getElementById('totalBookNumber');
-        bookFound.textContent = '';
-        const h2 = document.createElement('h2');
-        h2.innerHTML = ` No Result Found`;
-        bookFound.appendChild(h2);
+        availableBooks(`No books found`);
+
     }
     else {
-        const bookFound = document.getElementById('totalBookNumber');
-        bookFound.textContent = '';
 
-        const h2 = document.createElement('h2');
-        h2.innerHTML = ` Total books found: ${data.numFound}`;
-        bookFound.appendChild(h2);
+        availableBooks(`Total books found: ${data.numFound}`)
     }
-
     const searchResult = document.getElementById('search-results');
     searchResult.textContent = '';
-
 
     console.log(data.numFound);
     books.forEach(book => {
