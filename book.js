@@ -13,7 +13,7 @@ const loadBookData = () => {
 
     const inputText = document.getElementById('text-input');
     const searchText = inputText.value;
-    if (searchText == '') {
+    if (searchText === '') {
         availableBooks(`please enter book name`);
     }
     else {
@@ -29,7 +29,7 @@ const loadBookData = () => {
 const displaySearchResult = data => {
     const books = data.docs;
     // console.log(books);
-    if (books.length == 0) {
+    if (books.length === 0) {
         availableBooks(`No result found`);
 
     }
