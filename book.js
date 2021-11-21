@@ -28,7 +28,7 @@ const displaySearchResult = data => {
     const books = data.docs;
     // console.log(books);
     if (books.length == 0) {
-        availableBooks(`No books found`);
+        availableBooks(`No result found`);
 
     }
     else {
@@ -48,8 +48,8 @@ const displaySearchResult = data => {
                   <div class="card" >
                     <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">${book.title}</h5>
-                      <h4 class="card-text"> Author:${book.author_name} </h4>
+                      <h4 class="card-title">${book.title}</h4>
+                      <h5 class="card-text"> Author:${book.author_name} </h5>
                       <p class="card-text"> First publish year:${book.first_publish_year} </p>
                       <p class="card-text"> Publisher:${book.publisher} </p>
                       <p class="card-text"></p>
